@@ -11,6 +11,6 @@ image 'maven:3.5.0' }
 stage('Docker Build') {
       agent any
       steps {
-sh 'docker build -t grupoxx/spring-petclinic:latest .' }
+sh 'docker build -t grupo03/spring-petclinic:latest .' }
 } }
 }
