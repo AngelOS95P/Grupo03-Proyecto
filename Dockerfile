@@ -1,4 +1,5 @@
 FROM chrismerchan/alpine-java
-LABEL maintainer="aperezm1@est.ups.edu.ec"
-COPY /target/spring-petclinic-2.3.0.BUILD-SNAPSHOT.jar /home/springpetclinic-2.3.0.jar
-CMD ["java","-jar","/home/spring-petclinic-2.3.0.jar"]
+LABEL maintainer="cmerchan@ups.edu.ec" 
+WORKDIR /home
+COPY /target/spring-petclinic-2.3.0.BUILD-SNAPSHOT.jar ./spring-petclinic-2.3.0.jar
+CMD ["java","-jar","spring-petclinic-2.3.0.jar"]
