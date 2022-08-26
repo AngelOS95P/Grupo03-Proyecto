@@ -1,18 +1,21 @@
 pipeline {
     agent none
     stages {
-        stage('Maven Install') { agent {
-            docker {
-                image 'maven:3.5.0' 
+        stage('Maven Install') { 
+            agent {
+                docker {
+                    image 'maven:3.5.0' 
+                }
+            } 
+            steps {
+                sh 'mvn clean install'
             }
-        } steps {
-            sh 'mvn clean install'
-        }
         }
         stage('Docker Build') {
             agent any
             steps {
-                sh 'docker build -t grupoxx/spring-petclinic:latest .' }
+                sh 'docker build -t grupo03/spring-petclinic:latest .' 
+            }
         } 
     }
 }
