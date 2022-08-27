@@ -26,10 +26,15 @@ pipeline {
                 }
             }
         }
-        stage('JUnitTest'){
-            steps{
-                sh "mvn clean compile test"
+       stage('JUnitTest'){
+                steps{
+                    sh(script: './mvnw --batch-mode -Dmaven.test.failure.ignore=true test')
+                }
             }
         }
+    post {
+    always {
+      junit(testResults: 'target/reports/*.xml', allowEmptyResults : true)
     }
+  }
 }
