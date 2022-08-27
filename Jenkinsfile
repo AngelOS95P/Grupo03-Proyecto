@@ -16,17 +16,17 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker build -t grupo04/spring-petclinic:latest .'
+                sh 'docker build -t grupo03/spring-petclinic:latest .'
             }
         }
-        stage('SonarQube analysis') {
+        stage('SonarQube') {
             steps{
                 withSonarQubeEnv('spring-petclinic') { 
                     sh "mvn sonar:sonar"
                 }
             }
         }
-        stage('JUnit Test'){
+        stage('JUnitTest'){
             steps{
                 sh "mvn clean compile test"
             }
